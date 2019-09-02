@@ -1,0 +1,21 @@
+#! /bin/bash
+
+#django app setup - requires python3
+
+VENAME='webapp2'
+
+
+mkdir ~/.virtualenvs
+
+python3 -m venv ~/.virtualenvs/$VENAME
+source  ~/.virtualenvs/$VENAME/bin/activate
+cd ~/.virtualenvs/$VENAME
+pip install --upgrade pip
+pip install django
+python -m django --version
+django-admin startproject $VENAME
+
+#python manage.py runserver
+deactivate
+
+#TREEEE
