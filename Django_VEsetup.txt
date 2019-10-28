@@ -2,10 +2,11 @@
 
 #django app setup - requires python3
 
-VENAME='webapp2'
+Read VENAME
 
-
-mkdir ~/.virtualenvs
+if [ ! -d "~/.virtualenvs" ]; then
+  mkdir ~/.virtualenvs
+fi
 
 python3 -m venv ~/.virtualenvs/$VENAME
 source  ~/.virtualenvs/$VENAME/bin/activate
@@ -18,4 +19,6 @@ django-admin startproject $VENAME
 #python manage.py runserver
 deactivate
 
+cd ~/.virtualenvs/$VENAME
+exec bash
 #TREEEE
