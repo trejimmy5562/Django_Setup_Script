@@ -1,24 +1,31 @@
 #! /bin/bash
 
 #django app setup - requires python3
-
-Read VENAME
+echo "Input name for virtual environment and Django project"
+read VENAME
 
 if [ ! -d "~/.virtualenvs" ]; then
   mkdir ~/.virtualenvs
 fi
-
+#create and activate the virtualenv
 python3 -m venv ~/.virtualenvs/$VENAME
 source  ~/.virtualenvs/$VENAME/bin/activate
 cd ~/.virtualenvs/$VENAME
+#install pip and Django and all that jazz
 pip install --upgrade pip
 pip install django
 python -m django --version
+#initialize the Django project and start project with same name as virtualenv
 django-admin startproject $VENAME
-
+#this runs the server
 #python manage.py runserver
-deactivate
-
+#deactivate
+#read in the name for your app
+echo "Input name for Django app (ex. blog)"
+read appname
+#create your app
+python manage.py startapp $appname
+#this puts you into the virtual env and keeps you there
 cd ~/.virtualenvs/$VENAME
 exec bash
 #TREEEE

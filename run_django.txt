@@ -1,0 +1,11 @@
+#! /bin/bash
+
+Read VENAME
+
+cd ~/.virtualenvs/$VENAME
+source  ~/.virtualenvs/$VENAME/bin/activate
+cd ~/.virtualenvs/$VENAME/$VENAME
+python3 manage.py runserver
+
+cd ~/.virtualenvs/$VENAME
+exec bash
